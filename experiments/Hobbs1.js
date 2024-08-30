@@ -34,4 +34,11 @@ function draw() {
       translate(x, y);
       flower();
 
-      po
+      pop();
+      x += flowerSize + gap;
+    }
+    y += flowerSize + gap;
+  }
+}
+
+// I used the code example we got in the workshop with Bassima on the 28/8 to help me get started //
