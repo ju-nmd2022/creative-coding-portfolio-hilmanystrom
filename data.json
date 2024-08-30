@@ -1,7 +1,7 @@
 [
   {
-    "file": "experiments/example.js",
-    "name": "Name of your experiment",
-    "description": "Explains the what and the why. What is the main idea? What is the purpose? Describes the coding process and implementation choices and gives a high level system overview."
+    "file": "hilma/Hobbs1.js",
+    "name": "Yellow flowers",
+    "description": "Flowers I made inspired by Tyler Hobbs artwork. The main idea was to create some artwork containing flowers and I took Tylers work named Petal loops as an inspiration. I used an example code we did together with Bassima and Garrit during a workshop on the 28/8 as help and a structure to continue build my own code on."
   }
 ]
