@@ -156,7 +156,11 @@ function drawParticles() {
 }
 
 function draw() {
+  background(255, 255, 255, 25);
   drawParticles();
+  if (particles.length === 0) {
+    noLoop();
+  }
 }
 
 function mouseClicked() {
