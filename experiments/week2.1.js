@@ -120,9 +120,9 @@ class Particle {
     push();
     translate(this.position.x, this.position.y);
     noStroke();
-    let r = random(255);
-    let g = random(200);
-    let b = random(255);
+    let r = random(0);
+    let g = random(0);
+    let b = random(0);
     const alpha = map(this.lifespan, 0, 10, 0, 255);
     fill(r, g, b, alpha);
     ellipse(0, 0, 6);
