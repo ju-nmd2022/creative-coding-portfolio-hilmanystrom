@@ -9,4 +9,14 @@
     "name": "Different colored flowers",
     "description": "A variation of the first flowers I made inspired by Tyler Hobbs artwork. The chnages I made to variate it was to give the flowers different some different shades of pink in a randomized patter! Same thing here with coding structure, I used an example code we did together with Bassima and Garrit during a workshop on the 28/8 as help and a structure to continue build my own code on, and added some more lines and changes in this second version."
   },
- 
+  {
+    "file": "experiments/week2.js",
+    "name": "Shapes with sparkles",
+    "description": "I took some inspiration from Molnars work, and made some changes of my own liking to it. I started with making she squares solid colors and then adding some randomized squares to it to swtish things up a litle. I used some of the examples from the lectures, such as the example for Molnars squares and also the particle example which I then added into the molnar-code."
+  },
+  {
+    "file": "experiments/week2.1.js",
+    "name": "Fading shapes with sparkles",
+    "description": "I took some inspiration from Molnars work, and made some changes of my own liking to it. I started with making she squares solid colors and then adding some randomized squares to it to switch things up a litle. I used some of the examples from the lectures, such as the example for Molnars squares and also the particle example which I then added into the molnar-code, and in this second version I added a fading effect with each mouse-click."
+  }
+]
