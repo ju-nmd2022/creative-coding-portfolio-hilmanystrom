@@ -169,3 +169,5 @@ function mouseClicked() {
     loop();
   }
 }
+
+// For the "isInsideShape" function I took help from chatGPT to make it work. I also used help from code examples from lectures, for Vera Molnars squares and the particles and then combined the two.
