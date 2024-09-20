@@ -41,9 +41,13 @@ function draw() {
     }
 
     if (p.x < 0) p.x = width;
+    p.x += random(-1, 1);
     if (p.x > width) p.x = 0;
+    p.x += random(-1, 1);
     if (p.y < 0) p.y = height;
+    p.y += random(-1, 1);
     if (p.y > height) p.y = 0;
+    p.y += random(-1, 1);
 
     stroke(map(p.x, 0, width, 0, 255), 100, 200);
     strokeWeight(6);
