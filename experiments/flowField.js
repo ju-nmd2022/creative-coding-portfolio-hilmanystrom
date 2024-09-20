@@ -35,6 +35,8 @@ function draw() {
     if (col >= 0 && col < cols && row >= 0 && row < rows) {
       let angle = noise(col * noiseScale, row * noiseScale) * TWO_PI;
       let v = p5.Vector.fromAngle(angle);
+      let speed = 1;
+
       p.add(v);
     }
 
