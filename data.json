@@ -20,7 +20,7 @@
     "description": "Week one, artwork number 2 and variation 2! A second variation of Molnars art with squares"
   },
   {
-    "file": "experiments/week2.js",
+    "file": "experiments/weekTwo.js",
     "name": "Perlin Noise particles",
     "description": "Some particles with Perlin noise that also follows your mouse if you were to move it!"
   },
