@@ -15,7 +15,7 @@ class Particle {
     this.velocity.mult(random(1, 3));
     this.lifespan = 100 + Math.random() * 50;
     this.maxLifespan = this.lifespan;
-    this.size = random(4, 6);
+    this.size = random(6, 8);
     this.hue = random(360);
     this.burstFactor = random(1.1, 1.3);
   }
