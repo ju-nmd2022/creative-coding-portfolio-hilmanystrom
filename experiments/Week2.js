@@ -1,136 +1,54 @@
 let particles = [];
-let shapes = [];
-const size = 90;
-const layers = 7;
+let noiseScale = 0.01; // Scale for Perlin noise
 
 function setup() {
   createCanvas(innerWidth, innerHeight);
-  drawLayersGrid();
   noLoop();
-}
-
-function drawLayersGrid() {
-  background(255, 255, 255);
-
-  shapes = [];
-
-  for (let y = 0; y < 10; y++) {
-    for (let x = 0; x < 10; x++) {
-      drawLayers(size / 2 + x * size, size / 2 + y * size, size, layers);
-    }
-  }
-}
-
-function getRandomValue(pos, variance) {
-  return pos + map(Math.random(), 0, 1, -variance, variance);
-}
-
-function drawLayers(x, y, size, layers) {
-  const variance = size / 20;
-
-  let r = random(255);
-  let g = random(200);
-  let b = random(255);
-
-  fill(r, g, b);
-  noStroke();
-
-  let drawCircle = random(1) > 0.7;
-
-  let shapeInfo = {
-    type: drawCircle ? "circle" : "square",
-    x: x,
-    y: y,
-    size: size / 2,
-  };
-
-  shapes.push(shapeInfo);
-  for (let i = 0; i < layers; i++) {
-    if (Math.random() > 0.8) continue;
-    const s = (size / layers) * i;
-    const half = s / 2;
-
-    if (drawCircle) {
-      ellipse(
-        x,
-        y,
-        s + getRandomValue(0, variance),
-        s + getRandomValue(0, variance)
-      );
-    } else {
-      beginShape();
-      vertex(
-        getRandomValue(x - half, variance),
-        getRandomValue(y - half, variance)
-      );
-      vertex(
-        getRandomValue(x + half, variance),
-        getRandomValue(y - half, variance)
-      );
-      vertex(
-        getRandomValue(x + half, variance),
-        getRandomValue(y + half, variance)
-      );
-      vertex(
-        getRandomValue(x - half, variance),
-        getRandomValue(y + half, variance)
-      );
-      endShape(CLOSE);
-    }
-  }
-}
-
-function isInsideShape(x, y) {
-  for (let shape of shapes) {
-    if (shape.type === "circle") {
-      let d = dist(x, y, shape.x, shape.y);
-      if (d < shape.size) {
-        return true;
-      }
-    } else if (shape.type === "square") {
-      if (
-        x > shape.x - shape.size &&
-        x < shape.x + shape.size &&
-        y > shape.y - shape.size &&
-        y < shape.y + shape.size
-      ) {
-        return true;
-      }
-    }
-  }
-  return false;
 }
 
 class Particle {
   constructor(x, y) {
     this.position = createVector(x, y);
-    const a = Math.random() * Math.PI * 2;
-    const v = 0.2 + Math.random();
-    this.velocity = createVector(Math.cos(a) * v, Math.sin(a) * v);
-    this.lifespan = 10 + Math.random() * 4;
+    this.lifespan = 60 + Math.random() * 40;
+    this.maxLifespan = this.lifespan;
+    this.size = random(4, 10);
+    this.hue = random(360);
+    this.noiseOffsetX = random(1000);
+    this.noiseOffsetY = random(1000);
   }
 
   update() {
     this.lifespan--;
-    this.velocity.mult(1.3);
-    this.position.add(this.velocity);
+
+    let noiseX = noise(this.noiseOffsetX) * TWO_PI;
+    let noiseY = noise(this.noiseOffsetY) * TWO_PI;
+
+    let velocity = createVector(cos(noiseX), sin(noiseY));
+    velocity.mult(0.5);
+    this.position.add(velocity);
+
+    this.noiseOffsetX += noiseScale;
+    this.noiseOffsetY += noiseScale;
+
+    this.size *= 1;
+    this.hue += 1;
   }
 
   draw() {
     push();
     translate(this.position.x, this.position.y);
     noStroke();
-    let r = random(255);
-    let g = random(200);
-    let b = random(255);
-    const alpha = map(this.lifespan, 0, 10, 0, 255);
-    fill(r, g, b, alpha);
-    ellipse(0, 0, 6);
+
+    colorMode(HSB, 360, 100, 100, 255);
+    let alpha = map(this.lifespan, 0, this.maxLifespan, 0, 255);
+    fill(this.hue % 360, 100, 100, alpha);
+
+    ellipse(0, 0, this.size);
     pop();
   }
 
   isDead() {
-    return this.lifespan <= 1;
+    return this.lifespan <= 0;
   }
 }
 
@@ -153,17 +71,18 @@ function drawParticles() {
       particles.splice(i, 1);
     }
   }
+
+  if (particles.length === 0) {
+    noLoop();
+  }
 }
 
 function draw() {
+  background(0, 0, 0, 25);
   drawParticles();
 }
 
 function mouseClicked() {
-  if (isInsideShape(mouseX, mouseY)) {
-    generateParticles(mouseX, mouseY);
-    loop();
-  }
+  generateParticles(mouseX, mouseY);
+  loop();
 }
-
-// For the "isInsideShape" function I took some help from chatGPT to make it work. I also used help from code examples from lectures, for Vera Molnars squares and the particles and then combined the two.
