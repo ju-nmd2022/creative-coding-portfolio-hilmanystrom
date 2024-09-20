@@ -1,5 +1,6 @@
 let particles = [];
-let noiseScale = 0.01; // Scale for Perlin noise
+let noiseScale = 0.02;
+let mouseAttractionStrength = 0.05;
 
 function setup() {
   createCanvas(innerWidth, innerHeight);
@@ -9,12 +10,13 @@ function setup() {
 class Particle {
   constructor(x, y) {
     this.position = createVector(x, y);
-    this.lifespan = 60 + Math.random() * 40;
+    this.lifespan = 200 + Math.random() * 100;
     this.maxLifespan = this.lifespan;
-    this.size = random(4, 10);
-    this.hue = random(360);
+    this.size = random(10, 20);
+    this.hue = random(255);
     this.noiseOffsetX = random(1000);
     this.noiseOffsetY = random(1000);
+    this.velocity = createVector(0, 0);
   }
 
   update() {
@@ -22,15 +24,20 @@ class Particle {
 
     let noiseX = noise(this.noiseOffsetX) * TWO_PI;
     let noiseY = noise(this.noiseOffsetY) * TWO_PI;
-
-    let velocity = createVector(cos(noiseX), sin(noiseY));
-    velocity.mult(0.5);
-    this.position.add(velocity);
+    let noiseVelocity = createVector(cos(noiseX), sin(noiseY));
+    noiseVelocity.mult(0.5);
+    this.position.add(noiseVelocity);
 
     this.noiseOffsetX += noiseScale;
     this.noiseOffsetY += noiseScale;
 
+    let mouse = createVector(mouseX, mouseY);
+    let attractionForce = p5.Vector.sub(mouse, this.position);
+    attractionForce.mult(mouseAttractionStrength);
+    this.position.add(attractionForce);
+
     this.size *= 1;
+
     this.hue += 1;
   }
 
@@ -39,9 +46,11 @@ class Particle {
     translate(this.position.x, this.position.y);
     noStroke();
 
-    colorMode(HSB, 360, 100, 100, 255);
-    let alpha = map(this.lifespan, 0, this.maxLifespan, 0, 255);
-    fill(this.hue % 360, 100, 100, alpha);
+    let r = map(sin(this.hue * 0.1), -1, 1, 50, 255);
+    let g = map(cos(this.hue * 0.1), -1, 1, 50, 255);
+    let b = map(sin(this.hue * 0.2), -1, 1, 50, 255);
+
+    fill(r, g, b, alpha);
 
     ellipse(0, 0, this.size);
     pop();
@@ -78,7 +87,7 @@ function drawParticles() {
 }
 
 function draw() {
-  background(0, 0, 0, 25);
+  background(0, 0, 0, 35);
   drawParticles();
 }
 

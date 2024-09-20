@@ -26,7 +26,7 @@
   },
 
   {
-    "file": "experiments/week2.1.js",
+    "file": "",
     "name": "Fading shapes with sparkles",
     "description": "I took some inspiration from Molnars work, and made some changes of my own liking to it. I started with making she squares solid colors and then adding some randomized squares to it to switch things up a litle. I used some of the examples from the lectures, such as the example for Molnars squares and also the particle example which I then added into the molnar-code, and in this second version I added a fading effect with each mouse-click."
   }
