@@ -20,14 +20,14 @@
     "description": "Week one, artwork number 2 and variation 2! A second variation of Molnars art with squares"
   },
   {
-    "file": "experiments/flowField1.js",
+    "file": "experiments/flowField.js",
     "name": "Flow Field inspired by Tyler Hobbs",
     "description": "A flowfield with particles moving slowly."
   },
   {
     "file": "experiments/weekTwo.js",
     "name": "Perlin Noise particles",
-    "description": "Some particles with Perlin noise that also follows your mouse if you were to move it!"
+    "description": "Some particles with Perlin noise that also follows your mouse if you were to move it! Click on the screen :)"
   },
 
   {
