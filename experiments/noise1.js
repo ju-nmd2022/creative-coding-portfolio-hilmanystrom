@@ -85,7 +85,7 @@ function drawParticles() {
 }
 
 function draw() {
-  background(0, 0, 0, 25);
+  background(100, 100, 255, 25);
   drawParticles();
 }
 
