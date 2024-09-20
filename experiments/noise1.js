@@ -1,3 +1,5 @@
+import * as Tone from "tone";
+
 let particles = [];
 let noiseScale = 0.01; // Scale for Perlin noise
 let noisePlayer; // Noise player
@@ -91,8 +93,9 @@ function mouseClicked() {
   generateParticles(mouseX, mouseY);
   loop();
 
-  // Trigger noise on mouse click
+  // Start Tone.js if not already started
   Tone.start().then(() => {
+    // Trigger noise on mouse click
     noisePlayer.start();
     // Stop the noise after a short duration
     setTimeout(() => {
