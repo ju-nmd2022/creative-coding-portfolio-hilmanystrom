@@ -22,7 +22,7 @@
   {
     "file": "experiments/week2.js",
     "name": "Perlin Noise particles",
-    "description": ""
+    "description": "Some particles with Perlin noise that also follows your mouse if you were to move it!"
   },
 
   {
