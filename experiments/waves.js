@@ -105,3 +105,5 @@ class Ripple {
     return map(this.amplitude, 100, 0, 0.01, 0.1);
   }
 }
+
+// Took help from ChatGPT and also one of the tone.js examples from the lectures on sound!

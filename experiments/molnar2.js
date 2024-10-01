@@ -12,7 +12,6 @@ function getRandomValue(pos, variance) {
 }
 
 function drawLayers(x, y, size, layers) {
-  // const half = size / 2;
   const variance = size / 20;
 
   let r = random(255);
@@ -22,7 +21,7 @@ function drawLayers(x, y, size, layers) {
   fill(r, g, b);
   noStroke();
 
-  let drawCircle = random(1) > 0.7; // 50% chance to draw a circle or square
+  let drawCircle = random(1) > 0.7;
 
   for (let i = 0; i < layers; i++) {
     if (Math.random() > 0.8) {

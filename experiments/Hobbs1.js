@@ -3,8 +3,8 @@ let amount = 8;
 let gap = 90;
 
 function setup() {
-  createCanvas(innerWidth, innerHeight);
-  background(150);
+  createCanvas(1000, 1000);
+  background(173, 216, 230);
   noLoop();
 }
 

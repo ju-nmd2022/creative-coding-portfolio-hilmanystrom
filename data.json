@@ -10,6 +10,11 @@
     "description": "A variation of the first flowers I made inspired by Tyler Hobbs artwork. The chnages I made to variate it was to give the flowers different some different shades of pink in a randomized patter! Same thing here with coding structure, I used an example code we did together with Bassima and Garrit during a workshop on the 28/8 as help and a structure to continue build my own code on, and added some more lines and changes in this second version."
   },
   {
+    "file": "experiments/Hobbs3.js",
+    "name": "Windmill flowers",
+    "description": "The same flowers from the first version, but this time they are slowly rotation for a sort of windmill effect, kind of :D"
+  },
+  {
     "file": "experiments/molnar1.js",
     "name": "Squares and colors",
     "description": "Week one, artwork number 2 and variation 1! A variation of Vera Molnar square-art :D"
@@ -31,11 +36,11 @@
   },
   {
     "file": "experiments/flowFields2.js",
-    "name": "Follow mouse to speed up?",
-    "description": ""
+    "name": "Flow field with choosable direction",
+    "description": "You can now decide the direction of the flowers by moving your mouse, and can also kind of collect all the particles into one line if you want to!"
   },
   {
-    "file": "experiments/weekTwo.js",
+    "file": "experiments/perlinParticles.js",
     "name": "Perlin Noise particles",
     "description": "Some particles with Perlin noise that also follows your mouse if you were to move it! Click on the screen :)"
   },
