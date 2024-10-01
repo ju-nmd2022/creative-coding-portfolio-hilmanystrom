@@ -34,6 +34,9 @@
     "name": "Perlin Noise particles",
     "description": "Some particles with Perlin noise that also follows your mouse if you were to move it! Click on the screen :)"
   },
-
-  {}
+  {
+    "file": "experiments/waves.js",
+    "name": "plis make noise",
+    "description": ""
+  }
 ]
