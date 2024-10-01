@@ -11,13 +11,18 @@
   },
   {
     "file": "experiments/molnar1.js",
-    "name": "",
+    "name": "Squares and colors",
     "description": "Week one, artwork number 2 and variation 1! A variation of Vera Molnar square-art :D"
   },
   {
     "file": "experiments/molnar2.js",
-    "name": "",
-    "description": "Week one, artwork number 2 and variation 2! A second variation of Molnars art with squares"
+    "name": "Squares, circles and colors!",
+    "description": "Week one, artwork number 2 and variation 2! A second variation of Molnars art with squares and now also circles"
+  },
+  {
+    "file": "experiments/molnar3.js",
+    "name": "Discolights with squares and circles",
+    "description": "Week one, artwork number 2 and variation 3! A second thirs of Molnars art with squares, circles and I added a bouncing effect to give them sort of a flickering discolight look :)"
   },
   {
     "file": "experiments/flowField.js",
