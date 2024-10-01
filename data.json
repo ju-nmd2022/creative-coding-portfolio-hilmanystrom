@@ -1,52 +1,58 @@
 [
   {
     "file": "experiments/Hobbs1.js",
-    "name": "Yellow flowers",
+    "name": "Week 1. Yellow flowers",
     "description": "Flowers I made inspired by Tyler Hobbs artwork. The main idea was to create some artwork containing flowers and I took Tylers work named Petal loops as an inspiration. I used an example code we did together with Bassima and Garrit during a workshop on the 28/8 as help and a structure to continue build my own code on."
   },
   {
     "file": "experiments/Hobbs2.js",
-    "name": "Different colored flowers",
+    "name": "Week 1. Different colored flowers",
     "description": "A variation of the first flowers I made inspired by Tyler Hobbs artwork. The chnages I made to variate it was to give the flowers different some different shades of pink in a randomized patter! Same thing here with coding structure, I used an example code we did together with Bassima and Garrit during a workshop on the 28/8 as help and a structure to continue build my own code on, and added some more lines and changes in this second version."
   },
   {
     "file": "experiments/Hobbs3.js",
-    "name": "Windmill flowers",
+    "name": "Week 1. Windmill flowers",
     "description": "The same flowers from the first version, but this time they are slowly rotation for a sort of windmill effect, kind of :D"
   },
   {
     "file": "experiments/molnar1.js",
-    "name": "Squares and colors",
+    "name": "Week 1. Squares and colors",
     "description": "Week one, artwork number 2 and variation 1! A variation of Vera Molnar square-art :D"
   },
   {
     "file": "experiments/molnar2.js",
-    "name": "Squares, circles and colors!",
+    "name": "Week 1. Squares, circles and colors!",
     "description": "Week one, artwork number 2 and variation 2! A second variation of Molnars art with squares and now also circles"
   },
   {
     "file": "experiments/molnar3.js",
-    "name": "Discolights with squares and circles",
+    "name": "Week 1. Discolights with squares and circles",
     "description": "Week one, artwork number 2 and variation 3! A second thirs of Molnars art with squares, circles and I added a bouncing effect to give them sort of a flickering discolight look :)"
   },
   {
     "file": "experiments/flowField.js",
-    "name": "Flow Field inspired by Tyler Hobbs",
+    "name": "Week 2. Flow Field inspired by Tyler Hobbs",
     "description": "A flowfield with particles moving slowly and almost kind of bouncy. Firstly moving freely and then they find the same path"
   },
   {
     "file": "experiments/flowFields2.js",
-    "name": "Flow field with choosable direction",
+    "name": "Week 2. Flow field with choosable direction",
     "description": "You can now decide the direction of the flowers by moving your mouse, and can also kind of collect all the particles into one line if you want to!"
   },
+
   {
     "file": "experiments/perlinParticles.js",
-    "name": "Perlin Noise particles",
+    "name": "Week 3. Perlin Noise particles",
     "description": "Some particles with Perlin noise that also follows your mouse if you were to move it! Click on the screen :)"
   },
   {
     "file": "experiments/waves.js",
-    "name": "Some sound lines",
+    "name": "Week 3. Blue waves",
+    "description": "A flow of blue waves"
+  },
+  {
+    "file": "experiments/soundWaves.js",
+    "name": "Week 4. Some sound lines",
     "description": "Click on a line and you will create some noise! The further down you go the darker the sound gets"
   }
 ]

@@ -4,7 +4,7 @@ let gap = 90;
 let flowers = [];
 
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(1000, 800);
   background(173, 216, 230);
 
   for (let i = 0; i < amount; i++) {

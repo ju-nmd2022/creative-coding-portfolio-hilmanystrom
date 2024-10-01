@@ -1,109 +1,36 @@
-let lines = [];
-let rippleCount = 10;
-let synth;
+let cols, rows;
+let squareSize = 30;
+let amplitude = 30;
+let waveFrequency = 0.05;
+let time = 0;
 
 function setup() {
-  createCanvas(3000, 1000);
-
-  for (let i = 0; i < height; i += 40) {
-    lines.push(new RippleLine(i));
-  }
-
-  synth = new Tone.Synth().toDestination();
+  createCanvas(1000, 800);
+  cols = ceil(width / squareSize);
+  rows = ceil(height / squareSize);
+  noStroke();
 }
 
 function draw() {
-  background(250, 218, 221);
+  background(0);
+  time += 0.02;
 
-  for (let line of lines) {
-    line.update();
-    line.display();
-  }
-}
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      let depthOffset = sin(TWO_PI * (x * waveFrequency) + time) * amplitude;
 
-function mousePressed() {
-  for (let line of lines) {
-    line.ripple(mouseY);
-  }
-}
+      let blueValue = map(depthOffset, -amplitude, amplitude, 255, 50);
+      let greenValue = map(y, 0, rows, 255, 100);
 
-function playSound(lineY) {
-  const minY = 0;
-  const maxY = height;
-  const mappedFreq = map(lineY, minY, maxY, 800, 100);
+      let fillColor = color(0, greenValue, blueValue);
 
-  synth.triggerAttackRelease(mappedFreq, "8n");
-}
+      let posX = x * squareSize;
+      let posY = y * squareSize - depthOffset;
 
-class RippleLine {
-  constructor(y) {
-    this.y = y;
-    this.amplitude = 0;
-    this.ripples = [];
-  }
-
-  ripple(clickY) {
-    if (abs(this.y - clickY) < 20) {
-      this.amplitude = 100;
-      this.ripples.push(new Ripple(this.y));
-
-      playSound(this.y);
-    }
-  }
-
-  update() {
-    for (let i = this.ripples.length - 1; i >= 0; i--) {
-      this.ripples[i].update();
-      if (this.ripples[i].isFinished()) {
-        this.ripples.splice(i, 1);
-      }
-    }
-  }
-
-  display() {
-    stroke(0, 0, 100);
-    strokeWeight(1.5);
-
-    if (this.ripples.length === 0) {
-      line(0, this.y, width, this.y);
-    } else {
-      for (let ripple of this.ripples) {
-        let waveLength = ripple.getWaveLength();
-        let startX = 0;
-        let endX = width;
-
-        beginShape();
-        for (let x = startX; x <= endX; x += 5) {
-          let y =
-            this.y +
-            sin(TWO_PI * waveLength * (x + ripple.offset)) * ripple.amplitude;
-          vertex(x, y);
-        }
-        endShape();
-      }
+      fill(fillColor);
+      rect(posX, posY, squareSize, squareSize);
     }
   }
 }
 
-class Ripple {
-  constructor(y) {
-    this.y = y;
-    this.amplitude = 40;
-    this.offset = 0;
-  }
-
-  update() {
-    this.amplitude *= 0.95;
-    this.offset += 5;
-  }
-
-  isFinished() {
-    return this.amplitude < 1;
-  }
-
-  getWaveLength() {
-    return map(this.amplitude, 100, 0, 0.01, 0.1);
-  }
-}
-
-// Took help from ChatGPT and also one of the tone.js examples from the lectures on sound!
+// Took inspiration from the artpiece "Hours of dark by ruth & tim, and used the code provided on their website as help as well as ChatGPT"
