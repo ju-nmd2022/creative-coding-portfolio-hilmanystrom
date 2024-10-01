@@ -39,16 +39,15 @@
     "name": "Week 2. Flow field with choosable direction",
     "description": "You can now decide the direction of the flowers by moving your mouse, and can also kind of collect all the particles into one line if you want to!"
   },
-
-  {
-    "file": "experiments/perlinParticles.js",
-    "name": "Week 3. Perlin Noise particles",
-    "description": "Some particles with Perlin noise that also follows your mouse if you were to move it! Click on the screen :)"
-  },
   {
     "file": "experiments/waves.js",
     "name": "Week 3. Blue waves",
     "description": "A flow of blue waves"
+  },
+  {
+    "file": "experiments/perlinParticles.js",
+    "name": "Week 3. Perlin Noise particles",
+    "description": "Some particles with Perlin noise that also follows your mouse if you were to move it! Click on the screen :)"
   },
   {
     "file": "experiments/soundWaves.js",
