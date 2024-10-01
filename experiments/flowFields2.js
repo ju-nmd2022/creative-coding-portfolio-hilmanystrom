@@ -2,6 +2,7 @@ let cols, rows;
 let scale = 20;
 let noiseScale = 0.1;
 let particles = [];
+let maxParticles = 500;
 
 function setup() {
   createCanvas(1000, 1000);
@@ -37,20 +38,26 @@ function draw() {
       let v = p5.Vector.fromAngle(angle);
       let speed = 1;
 
+      let mouseVector = createVector(mouseX, mouseY);
+      let direction = p5.Vector.sub(mouseVector, p);
+      direction.normalize();
+      direction.mult(0.5);
+
       p.add(v);
+      p.add(direction);
+
+      if (p.x < 0) p.x = width;
+      if (p.x > width) p.x = 0;
+      if (p.y < 0) p.y = height;
+      if (p.y > height) p.y = 0;
     }
 
-    if (p.x < 0) p.x = width;
-    p.x += random(-1, 1);
-    if (p.x > width) p.x = 0;
-    p.x += random(-1, 1);
-    if (p.y < 0) p.y = height;
-    p.y += random(-1, 1);
-    if (p.y > height) p.y = 0;
-    p.y += random(-1, 1);
-
     stroke(map(p.x, 0, width, 0, 255), 100, 200);
-    strokeWeight(6);
+    strokeWeight(8);
     point(p.x, p.y);
+  }
+
+  if (particles.length < maxParticles) {
+    particles.push(createVector(random(width), random(height)));
   }
 }

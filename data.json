@@ -30,13 +30,18 @@
     "description": "A flowfield with particles moving slowly and almost kind of bouncy. Firstly moving freely and then they find the same path"
   },
   {
+    "file": "experiments/flowFields2.js",
+    "name": "Follow mouse to speed up?",
+    "description": ""
+  },
+  {
     "file": "experiments/weekTwo.js",
     "name": "Perlin Noise particles",
     "description": "Some particles with Perlin noise that also follows your mouse if you were to move it! Click on the screen :)"
   },
   {
     "file": "experiments/waves.js",
-    "name": "plis make noise",
-    "description": ""
+    "name": "Some sound lines",
+    "description": "Click on a line and you will create some noise! The further down you go the darker the sound gets"
   }
 ]
